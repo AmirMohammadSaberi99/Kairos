@@ -102,60 +102,50 @@ Kairos follows **Clean Architecture** principles and **Unidirectional Data Flow 
 
 ```text
 Kairos/
-├── app/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/kairos/daily/
-│   │   │   │   ├── MainActivity.kt           # Edge-to-edge activity & notification launcher
-│   │   │   │   ├── data/
-│   │   │   │   │   ├── Task.kt               # Domain model (Eisenhower, recurrences)
-│   │   │   │   │   ├── TaskDatabase.kt       # SQLiteOpenHelper schema & migrations
-│   │   │   │   │   ├── TaskRepository.kt     # Reactive data access with SharedFlow events
-│   │   │   │   │   ├── TaskBackup.kt         # JSON backup import/export
-│   │   │   │   │   └── UserPreferences.kt    # Pomodoro & theme configurations
-│   │   │   │   ├── focus/
-│   │   │   │   │   ├── FocusTimer.kt         # Countdown logic & repository
-│   │   │   │   │   └── FocusCompleteReceiver.kt # Broadcast receiver for timer alarms
-│   │   │   │   ├── reminders/
-│   │   │   │   │   ├── ReminderScheduler.kt  # Exact alarm scheduling
-│   │   │   │   │   ├── ReminderReceiver.kt   # System notification dispatcher
-│   │   │   │   │   └── BootReceiver.kt       # Alarm restoration after phone reboot
-│   │   │   │   ├── sync/
-│   │   │   │   │   ├── LocalSync.kt          # P2P TCP socket server & client
-│   │   │   │   │   │                         # Includes SyncSecurityGate rate-limiter
-│   │   │   │   │   └── SyncReceiverService.kt # Foreground service (Android 15 safe)
-│   │   │   │   └── ui/
-│   │   │   │       ├── KairosApp.kt          # Main navigation scaffold, views, sheets
-│   │   │   │       ├── KairosViewModel.kt    # MVVM reactive state coordinator
-│   │   │   │       ├── DailyQuotes.kt        # Daily quote catalog
-│   │   │   │       └── theme/                # Material 3 ColorScheme, Typography
-│   │   │   └── res/                          # Vector drawables, mipmaps, theme styles
-│   │   └── test/                             # Comprehensive unit test suites
-│   └── build.gradle.kts                      # Module build configuration
-├── build.gradle.kts                          # Root build configuration
-└── settings.gradle.kts                       # Project settings
+├── android/                        # Android Native App (Jetpack Compose & Kotlin)
+│   ├── app/
+│   │   ├── src/
+│   │   │   ├── main/
+│   │   │   │   ├── java/com/kairos/daily/  # Domain, Sync, Focus & UI code
+│   │   │   │   └── res/                   # Drawables, mipmaps, theme styles
+│   │   │   └── test/                      # Comprehensive unit test suites
+│   │   └── build.gradle.kts               # App module build configuration
+│   ├── gradle/wrapper/                    # Gradle wrapper binaries & configs
+│   ├── build.gradle.kts                   # Root Android build configuration
+│   ├── settings.gradle.kts                # Android project settings
+│   └── gradlew.bat                        # Gradle build runner
+├── windows/                        # Windows Desktop App (React 18 & PyWebview)
+│   ├── src/                               # TypeScript & React frontend
+│   ├── desktop_app.py                     # PyWebview host window & local backend
+│   ├── build_exe.py                       # Automated PyInstaller packaging script
+│   ├── run_desktop.bat                    # One-click desktop launcher
+│   └── package.json                       # Node.js dependencies & build scripts
+└── README.md                              # Project documentation & guides
 ```
 
 ---
 
 ## 🖥️ Kairos Windows Desktop Edition
 
-Alongside the Android app, Kairos offers an ultra-sleek, standalone Windows desktop application located in [`kairos-ts/`](kairos-ts/):
+Alongside the Android app, Kairos offers an ultra-sleek, standalone Windows desktop application located in [`windows/`](windows/):
 
 * **Raycast & Linear-Grade Aesthetic**: Featuring a deep midnight dark mode and an ethereal **Frosted Light Glass** theme with atmospheric light refraction.
 * **Fluid 2×2 Eisenhower Matrix**: Expands across 100% of the desktop viewport with strategic axis guides, inline quick-add, and instant task prioritization.
 * **Focus & Pomodoro Ring**: Animated circular countdown with procedural Web Audio harmonic chimes (no external MP3 dependencies).
 * **Command Palette**: Press <kbd>Ctrl</kbd> + <kbd>K</kbd> anywhere to search and jump to any view or task instantly.
 * **Offline-First Storage**: Powered by a robust, reactive IndexedDB engine with full JSON backup export/import compatible with the Android app.
-* **Zero-Setup Standalone Executable**: Packaged as a single-file executable [`Kairos.exe`](kairos-ts/release/Kairos.exe) with embedded assets, no console window, and an isolated safe port (`58942`).
+* **Zero-Setup Standalone Executable**: Packaged as a single-file executable `Kairos.exe` with embedded assets, no console window, and an isolated safe port (`58942`). Downloadable directly from the [GitHub Releases](https://github.com/AmirMohammadSaberi99/Kairos/releases/latest) page.
 
 ### Quick Launch on Windows:
 ```cmd
-# Run prebuilt standalone executable (No Node.js or Python required)
-kairos-ts\Kairos.exe
+# Option 1: Run prebuilt standalone executable (Zero dependencies)
+# Download Kairos.exe from GitHub Releases and run it directly!
 
-# Or run via local development server
-cd kairos-ts
+# Option 2: Run via desktop launcher script
+windows\run_desktop.bat
+
+# Option 3: Run via local development server
+cd windows
 npm install
 npm run dev
 ```
@@ -173,8 +163,8 @@ npm run dev
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/kairos.git
-   cd kairos
+   git clone https://github.com/AmirMohammadSaberi99/Kairos.git
+   cd Kairos/android
    ```
 
 2. **Run unit tests**:

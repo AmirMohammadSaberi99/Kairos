@@ -21,6 +21,8 @@ local.properties
 /*.png
 /*.xml
 *.log
+captures/
+**/captures/
 
 # OS generated files
 .DS_Store
