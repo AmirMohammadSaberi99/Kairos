@@ -1,0 +1,28 @@
+# Built application files
+*.apk
+*.aab
+**/build/
+
+# Gradle & Kotlin caches
+.gradle/
+.kotlin/
+
+# IDE & local configurations
+.idea/
+.android/
+local.properties
+*.iml
+
+# Keystores and signing secrets
+*.jks
+*.keystore
+
+# Root test dumps, screenshots & logs
+/*.png
+/*.xml
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
