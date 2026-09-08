@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme (Frosted Glass / Glassmorphism Aesthetic) */
+    --kairos-bg: 245 247 251;
+    --kairos-surface: 255 255 255;
+    --kairos-surface-high: 241 245 249;
+    --kairos-border: 226 232 240;
+    --kairos-text: 15 23 42;
+    --kairos-muted: 100 116 139;
+    --kairos-accent: 108 92 231;
+    --kairos-accent-hover: 90 74 209;
+    --kairos-mint: 16 185 129;
+    --kairos-mint-hover: 5 150 105;
+    --kairos-coral: 239 68 68;
+    --kairos-amber: 217 119 6;
+    --kairos-slate: 100 116 139;
+  }
+
+  .dark {
+    /* Dark Theme (Midnight Frosted Glass) */
+    --kairos-bg: 9 11 16;
+    --kairos-surface: 18 21 29;
+    --kairos-surface-high: 26 30 41;
+    --kairos-border: 42 46 58;
+    --kairos-text: 242 241 246;
+    --kairos-muted: 152 155 168;
+    --kairos-accent: 139 124 255;
+    --kairos-accent-hover: 121 105 242;
+    --kairos-mint: 112 225 176;
+    --kairos-mint-hover: 92 209 159;
+    --kairos-coral: 255 125 139;
+    --kairos-amber: 245 158 11;
+    --kairos-slate: 107 114 128;
+  }
+
+  body {
+    background-color: rgb(var(--kairos-bg));
+    color: rgb(var(--kairos-text));
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom Minimalist Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.45);
+}

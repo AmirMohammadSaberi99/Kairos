@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Production build artifacts
+dist/
+release/
+*.exe
+
+# Python / PyInstaller build caches
+build/
+__pycache__/
+*.spec
+
+# OS and environment files
+.DS_Store
+Thumbs.db
+*.log

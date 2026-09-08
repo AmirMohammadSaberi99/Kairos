@@ -2,12 +2,12 @@
 
 # ⏳ Kairos
 
-**A minimalist, offline-first daily task planner, Eisenhower Matrix, Pomodoro timer, and peer-to-peer sync engine for Android.**
+**A minimalist, offline-first daily task planner, Eisenhower Matrix, Pomodoro timer, and peer-to-peer sync engine for Android & Windows.**
 
 [![Android SDK](https://img.shields.io/badge/API-26%20to%2035%20(Android%2015)-3DDC84?logo=android&logoColor=white)](#requirements)
+[![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011%20Desktop-0078D4?logo=windows&logoColor=white)](#-kairos-windows-desktop-edition)
+[![TypeScript](https://img.shields.io/badge/TypeScript-React%2018%20%7C%20Tailwind-3178C6?logo=typescript&logoColor=white)](#-kairos-windows-desktop-edition)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org)
-[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-BOM%202024.12.01-4285F4?logo=jetpackcompose&logoColor=white)](https://developer.android.com/jetpack/compose)
-[![Tests](https://img.shields.io/badge/Unit%20Tests-15%20Passing-success?logo=checkmarx&logoColor=white)](#-testing)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Cloud-00C853?logo=shield&logoColor=white)](#%EF%B8%8F-privacy--permissions)
 
 </div>
@@ -138,7 +138,31 @@ Kairos/
 
 ---
 
-## 🚀 Getting Started
+## 🖥️ Kairos Windows Desktop Edition
+
+Alongside the Android app, Kairos offers an ultra-sleek, standalone Windows desktop application located in [`kairos-ts/`](kairos-ts/):
+
+* **Raycast & Linear-Grade Aesthetic**: Featuring a deep midnight dark mode and an ethereal **Frosted Light Glass** theme with atmospheric light refraction.
+* **Fluid 2×2 Eisenhower Matrix**: Expands across 100% of the desktop viewport with strategic axis guides, inline quick-add, and instant task prioritization.
+* **Focus & Pomodoro Ring**: Animated circular countdown with procedural Web Audio harmonic chimes (no external MP3 dependencies).
+* **Command Palette**: Press <kbd>Ctrl</kbd> + <kbd>K</kbd> anywhere to search and jump to any view or task instantly.
+* **Offline-First Storage**: Powered by a robust, reactive IndexedDB engine with full JSON backup export/import compatible with the Android app.
+* **Zero-Setup Standalone Executable**: Packaged as a single-file executable [`Kairos.exe`](kairos-ts/release/Kairos.exe) with embedded assets, no console window, and an isolated safe port (`58942`).
+
+### Quick Launch on Windows:
+```cmd
+# Run prebuilt standalone executable (No Node.js or Python required)
+kairos-ts\Kairos.exe
+
+# Or run via local development server
+cd kairos-ts
+npm install
+npm run dev
+```
+
+---
+
+## 🚀 Getting Started (Android)
 
 ### Prerequisites
 * **JDK 17** (or newer)
